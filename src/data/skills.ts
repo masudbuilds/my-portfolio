@@ -30,6 +30,7 @@ export const SKILLS: readonly Skill[] = [
   // Backend
   { name: "Next.js API Routes", category: "Backend" },
   { name: "Node.js", category: "Backend" },
+  { name: "Better Auth", category: "Backend" },
 
   // Database
   { name: "MongoDB", category: "Database" },

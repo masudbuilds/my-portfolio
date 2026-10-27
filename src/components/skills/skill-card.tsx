@@ -12,6 +12,7 @@ import {
   Component,
   Box,
   Sparkles,
+  ShieldCheck,
   LucideIcon,
 } from "lucide-react";
 import { Skill } from "@/types/skill";
@@ -42,6 +43,7 @@ const SKILL_ICONS: Record<
   "Tailwind CSS": Palette,
   "Next.js API Routes": Server,
   "Node.js": Terminal,
+  "Better Auth": ShieldCheck,
   MongoDB: Database,
   Git: GitBranch,
   GitHub: GitHubIcon,
