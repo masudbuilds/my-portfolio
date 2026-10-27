@@ -23,7 +23,8 @@ export function Navbar() {
   const pathname = usePathname();
   const isProjectPage = pathname?.startsWith("/projects");
   const [scrolled, setScrolled] = React.useState(false);
-  const [homeActiveSection, setHomeActiveSection] = React.useState<string>("home");
+  const [homeActiveSection, setHomeActiveSection] =
+    React.useState<string>("home");
 
   // Derive active section: on project pages, highlight projects; otherwise use intersection observer
   const activeSection = isProjectPage ? "projects" : homeActiveSection;
@@ -43,7 +44,14 @@ export function Navbar() {
   React.useEffect(() => {
     if (isProjectPage) return;
 
-    const sectionIds = ["home", "about", "skills", "education", "projects", "contact"];
+    const sectionIds = [
+      "home",
+      "about",
+      "skills",
+      "education",
+      "projects",
+      "contact",
+    ];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -54,14 +62,16 @@ export function Navbar() {
       (entries) => {
         const intersecting = entries.filter((entry) => entry.isIntersecting);
         if (intersecting.length > 0) {
-          intersecting.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          intersecting.sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+          );
           setHomeActiveSection(intersecting[0].target.id);
         }
       },
       {
         rootMargin: "-20% 0px -60% 0px",
         threshold: [0, 0.25, 0.5, 0.75, 1],
-      }
+      },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -75,7 +85,7 @@ export function Navbar() {
           "pointer-events-auto w-full max-w-5xl rounded-full border transition-all duration-300 motion-reduce:transition-none flex items-center justify-between px-3.5 sm:px-5 py-2 sm:py-2.5",
           scrolled
             ? "bg-background/85 backdrop-blur-md border-border/80 shadow-xs shadow-foreground/5"
-            : "bg-background/60 backdrop-blur-sm border-border/40 shadow-none"
+            : "bg-background/60 backdrop-blur-sm border-border/40 shadow-none",
         )}
       >
         {/* Left: Masud Rana Wordmark */}
@@ -90,7 +100,7 @@ export function Navbar() {
             width={48}
             height={48}
             priority
-            className="size-10 sm:size-11 object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
+            className="size-10 sm:size-11 border rounded-full object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
           />
           <span className="text-sm font-semibold tracking-tight text-foreground">
             Masud <span className="text-primary font-bold">Rana</span>
@@ -98,7 +108,10 @@ export function Navbar() {
         </Link>
 
         {/* Center: Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1" aria-label="Desktop Navigation">
+        <nav
+          className="hidden md:flex items-center gap-1"
+          aria-label="Desktop Navigation"
+        >
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.replace("/#", "");
             return (
@@ -109,7 +122,7 @@ export function Navbar() {
                   "relative px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   isActive
                     ? "text-primary font-semibold bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
                 )}
               >
                 {item.label}
@@ -126,7 +139,7 @@ export function Navbar() {
             href={CONTACT_ITEM.href}
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
-              "hidden sm:inline-flex rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-8 sm:h-9 px-4 text-xs sm:text-sm font-medium shadow-xs transition-transform active:scale-95 motion-reduce:transform-none"
+              "hidden sm:inline-flex rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-8 sm:h-9 px-4 text-xs sm:text-sm font-medium shadow-xs transition-transform active:scale-95 motion-reduce:transform-none",
             )}
           >
             {CONTACT_ITEM.label}

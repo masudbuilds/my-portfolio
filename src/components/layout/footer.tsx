@@ -65,7 +65,7 @@ export function Footer() {
                 alt="MR Logo"
                 width={40}
                 height={40}
-                className="size-9 sm:size-10 object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
+                className="size-9 sm:size-10 border rounded-full object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
               />
               <span className="text-base font-semibold tracking-tight text-foreground">
                 Masud <span className="text-primary font-bold">Rana</span>
