@@ -36,17 +36,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="group flex flex-col rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs overflow-hidden shadow-xs transition-all duration-300 hover:border-primary/40 hover:bg-card/90 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none">
       {/* Project Visual / Fallback Header */}
-      <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-gradient-to-br from-muted/60 via-card/80 to-muted/40 border-b border-border/60 flex items-center justify-center p-6">
+      <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-muted/60 via-card/80 to-muted/40 border-b border-border/60 flex items-center justify-center">
         {project.image ? (
           <Image
             src={project.image}
-            alt={`${project.title} preview screenshot`}
+            alt={`Screenshot of ${project.title} - ${project.tagline}`}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transform-none"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105 motion-reduce:transform-none"
           />
         ) : (
           /* Polished Editorial Monogram Fallback */
-          <div className="relative flex flex-col items-center justify-center text-center">
+          <div className="relative flex flex-col items-center justify-center text-center p-6">
             {/* Subtle glow behind monogram */}
             <div
               className="absolute size-24 rounded-full bg-primary/10 blur-xl pointer-events-none"
@@ -62,8 +63,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
 
         {/* Category Pill Tag */}
-        <div className="absolute top-3.5 right-3.5">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-background/80 backdrop-blur-xs border border-border/60 text-[11px] font-medium text-muted-foreground">
+        <div className="absolute top-3.5 right-3.5 z-10">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-background/85 backdrop-blur-md border border-border/80 text-[11px] font-medium text-foreground shadow-2xs">
             {project.category}
           </span>
         </div>

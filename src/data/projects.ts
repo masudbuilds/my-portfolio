@@ -26,6 +26,7 @@ export const PROJECTS: readonly Project[] = [
     ],
     liveUrl: "https://lal-khobor.vercel.app/",
     githubUrl: "https://github.com/masudbuilds/lal-khobor",
+    image: "/images/projects/lal-khobor.png",
     overview:
       "Lal Khobor was created to deliver an accessible, fast-loading digital reading experience for Bengali news readers. The project focuses on clean typographic hierarchy, real-time news dissemination, and user personalization through bookmarks and profiles.",
     features: [
@@ -62,6 +63,7 @@ export const PROJECTS: readonly Project[] = [
     ],
     liveUrl: "https://bazar-dor-phi.vercel.app/",
     githubUrl: "https://github.com/masudbuilds/bazar-dor",
+    image: "/images/projects/bazar-dor.png",
     overview:
       "BazarDor addresses the everyday challenge of tracking commodity and grocery price fluctuations in local markets. The application provides an organized view of current commodity rates, allowing users to look up prices quickly across common household categories.",
     features: [
@@ -91,6 +93,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     liveUrl: "https://fit-log-by-masud.vercel.app/",
     githubUrl: "https://github.com/MasudRanaOfficial/fit-log",
+    image: "/images/projects/fitlog.png",
     overview:
       "FitLog is a dedicated fitness tracker developed for gym-goers who want a distraction-free tool to log exercises, sets, and workout routines. It prioritizes quick input and readability in dim gym environments through its default dark interface.",
     features: [

@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -148,6 +149,20 @@ export function ProjectDetails({ project, otherProjects }: ProjectDetailsProps) 
             </a>
           </div>
         </header>
+
+        {/* Project Preview Screenshot Showcase */}
+        {project.image && (
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-border/80 bg-muted/30 shadow-xs mb-10 sm:mb-12">
+            <Image
+              src={project.image}
+              alt={`Full screenshot preview of ${project.title} - ${project.tagline}`}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 896px"
+              className="object-cover object-top"
+            />
+          </div>
+        )}
 
         {/* Content Grid */}
         <div className="space-y-10 sm:space-y-12">
