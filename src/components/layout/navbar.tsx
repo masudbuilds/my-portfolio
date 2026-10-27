@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -83,9 +84,14 @@ export function Navbar() {
           className="group flex items-center gap-2.5 rounded-full px-2 py-1 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           aria-label="Masud Rana Home"
         >
-          <span className="flex size-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold tracking-tight shadow-xs transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none">
-            MR
-          </span>
+          <Image
+            src="/images/mr-logo.png"
+            alt="MR Logo"
+            width={48}
+            height={48}
+            priority
+            className="size-10 sm:size-11 object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
+          />
           <span className="text-sm font-semibold tracking-tight text-foreground">
             Masud <span className="text-primary font-bold">Rana</span>
           </span>

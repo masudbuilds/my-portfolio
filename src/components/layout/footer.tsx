@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { NAV_ITEMS, CONTACT_ITEM } from "@/components/layout/navbar";
@@ -59,9 +60,13 @@ export function Footer() {
               className="group inline-flex items-center gap-2.5 rounded-full text-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 w-fit"
               aria-label="Masud Rana Home"
             >
-              <span className="flex size-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold tracking-tight shadow-xs transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none">
-                MR
-              </span>
+              <Image
+                src="/images/mr-logo.png"
+                alt="MR Logo"
+                width={40}
+                height={40}
+                className="size-9 sm:size-10 object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
+              />
               <span className="text-base font-semibold tracking-tight text-foreground">
                 Masud <span className="text-primary font-bold">Rana</span>
               </span>
