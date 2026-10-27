@@ -82,7 +82,7 @@ export function HeroSection() {
                 download="Masud_Rana_Resume.pdf"
                 className={cn(
                   buttonVariants({ variant: "default", size: "lg" }),
-                  "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 text-sm font-medium shadow-xs transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center"
+                  "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 text-sm font-medium shadow-xs transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center justify-center w-full sm:w-auto"
                 )}
               >
                 <Download className="size-4" aria-hidden="true" />
@@ -93,7 +93,7 @@ export function HeroSection() {
                 href="/#contact"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
-                  "group rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-6 text-sm font-medium transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center"
+                  "group rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-6 text-sm font-medium transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center justify-center w-full sm:w-auto"
                 )}
               >
                 <span>Contact Me</span>
@@ -132,7 +132,7 @@ export function HeroSection() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Outer decorative card frame */}
-              <div className="relative size-64 sm:size-72 md:size-80 lg:size-88 rounded-3xl p-2.5 bg-card/60 backdrop-blur-xs border border-border/80 shadow-lg shadow-foreground/5 transition-transform duration-300 group-hover:border-primary/40 motion-reduce:transform-none">
+              <div className="relative size-64 sm:size-72 md:size-80 lg:size-88 max-w-full aspect-square rounded-3xl p-2.5 bg-card/60 backdrop-blur-xs border border-border/80 shadow-lg shadow-foreground/5 transition-transform duration-300 group-hover:border-primary/40 motion-reduce:transform-none">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted/40">
                   <Image
                     src="/images/profile.png"

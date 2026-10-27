@@ -50,7 +50,13 @@ export function ProjectsSection() {
         />
 
         {/* Projects Grid Display */}
-        <ProjectGrid projects={filteredProjects} />
+        <div
+          id="projects-display"
+          role="tabpanel"
+          aria-labelledby={`tab-project-${activeCategory.toLowerCase().replace(/\s+/g, "-")}`}
+        >
+          <ProjectGrid projects={filteredProjects} />
+        </div>
       </div>
     </section>
   );

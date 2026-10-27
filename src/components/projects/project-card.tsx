@@ -95,8 +95,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-between gap-2.5 pt-4 border-t border-border/60 mt-auto">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 pt-4 border-t border-border/60 mt-auto">
+          <div className="flex flex-wrap items-center gap-2">
             <a
               href={project.liveUrl}
               target="_blank"

@@ -37,7 +37,7 @@ export function ProjectFilter({
             role="tab"
             id={`tab-project-${category.toLowerCase().replace(/\s+/g, "-")}`}
             aria-selected={isActive}
-            aria-controls="projects-grid"
+            aria-controls="projects-display"
             onClick={() => onSelectCategory(category)}
             className={cn(
               "inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none cursor-pointer",

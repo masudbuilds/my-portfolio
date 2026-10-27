@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -18,8 +19,13 @@ export const NAV_ITEMS = [
 export const CONTACT_ITEM = { label: "Contact", href: "/#contact" } as const;
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isProjectPage = pathname?.startsWith("/projects");
   const [scrolled, setScrolled] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState<string>("home");
+  const [homeActiveSection, setHomeActiveSection] = React.useState<string>("home");
+
+  // Derive active section: on project pages, highlight projects; otherwise use intersection observer
+  const activeSection = isProjectPage ? "projects" : homeActiveSection;
 
   // Track scroll position for floating glassmorphism appearance
   React.useEffect(() => {
@@ -34,6 +40,8 @@ export function Navbar() {
 
   // Active section tracking via IntersectionObserver
   React.useEffect(() => {
+    if (isProjectPage) return;
+
     const sectionIds = ["home", "about", "skills", "education", "projects", "contact"];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
@@ -46,7 +54,7 @@ export function Navbar() {
         const intersecting = entries.filter((entry) => entry.isIntersecting);
         if (intersecting.length > 0) {
           intersecting.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-          setActiveSection(intersecting[0].target.id);
+          setHomeActiveSection(intersecting[0].target.id);
         }
       },
       {
@@ -57,7 +65,7 @@ export function Navbar() {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [isProjectPage]);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none">

@@ -23,13 +23,23 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | Masud Rana",
+      title: "Project Not Found",
     };
   }
 
   return {
-    title: `${project.title} | Masud Rana`,
+    title: project.title,
     description: project.description,
+    openGraph: {
+      title: `${project.title} | Masud Rana`,
+      description: project.description,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Masud Rana`,
+      description: project.description,
+    },
   };
 }
 
