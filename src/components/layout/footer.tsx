@@ -57,7 +57,7 @@ export function Footer() {
           <div className="flex flex-col gap-3">
             <Link
               href="/#home"
-              className="group inline-flex items-center gap-2.5 rounded-full text-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 w-fit"
+              className="group inline-flex items-center gap-2 sm:gap-2.5 rounded-full text-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 w-fit"
               aria-label="Masud Rana Home"
             >
               <Image
@@ -67,7 +67,7 @@ export function Footer() {
                 height={40}
                 className="size-9 sm:size-10 border rounded-full object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
               />
-              <span className="text-base font-semibold tracking-tight text-foreground">
+              <span className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
                 Masud <span className="text-primary font-bold">Rana</span>
               </span>
             </Link>

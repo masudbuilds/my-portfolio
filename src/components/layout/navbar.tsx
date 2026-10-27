@@ -91,7 +91,7 @@ export function Navbar() {
         {/* Left: Masud Rana Wordmark */}
         <Link
           href="/#home"
-          className="group flex items-center gap-2.5 rounded-full px-2 py-1 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="group flex items-center gap-2 sm:gap-2.5 rounded-full px-2 py-1 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           aria-label="Masud Rana Home"
         >
           <Image
@@ -102,7 +102,7 @@ export function Navbar() {
             priority
             className="size-10 sm:size-11 border rounded-full object-contain transition-transform duration-200 group-hover:scale-105 motion-reduce:transform-none"
           />
-          <span className="text-sm font-semibold tracking-tight text-foreground">
+          <span className="text-base sm:text-lg font-semibold tracking-tight text-foreground">
             Masud <span className="text-primary font-bold">Rana</span>
           </span>
         </Link>
