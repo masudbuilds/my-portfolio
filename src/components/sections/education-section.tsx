@@ -48,17 +48,31 @@ export function EducationSection() {
               </div>
 
               {/* Details */}
-              <div className="flex flex-col gap-2">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-xs font-medium text-primary w-fit border border-primary/20">
-                  <span>Major</span>
-                  <span className="font-semibold text-foreground">
-                    {item.fieldOfStudy}
-                  </span>
+              <div className="flex flex-col gap-2 min-w-0 flex-1">
+                {/* Badges: Field of Study & Status */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-xs font-medium text-primary w-fit border border-primary/20">
+                    <span>Major:</span>
+                    <span className="font-semibold text-foreground">
+                      {item.fieldOfStudy}
+                    </span>
+                  </div>
+
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-muted/80 text-xs font-medium text-muted-foreground w-fit border border-border/60">
+                    <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
+                    <span>{item.status}</span>
+                  </div>
                 </div>
 
+                {/* Degree Title */}
                 <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
                   {item.degree}
                 </h3>
+
+                {/* Prominent Institution Name */}
+                <p className="text-sm sm:text-base font-medium text-muted-foreground">
+                  {item.institution}
+                </p>
               </div>
             </div>
           ))}
