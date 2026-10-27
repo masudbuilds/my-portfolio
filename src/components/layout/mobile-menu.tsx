@@ -85,13 +85,19 @@ export function MobileMenu({
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         className={cn(
           buttonVariants({ variant: "ghost", size: "icon" }),
-          "size-9 min-h-[44px] min-w-[44px] rounded-full text-foreground hover:bg-muted/60 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          "size-9 min-h-11 min-w-11 rounded-full text-foreground hover:bg-muted/60 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         )}
       >
         {isOpen ? (
-          <X className="size-5 transition-transform duration-200" aria-hidden="true" />
+          <X
+            className="size-5 transition-transform duration-200"
+            aria-hidden="true"
+          />
         ) : (
-          <Menu className="size-5 transition-transform duration-200" aria-hidden="true" />
+          <Menu
+            className="size-5 transition-transform duration-200"
+            aria-hidden="true"
+          />
         )}
       </button>
 
@@ -113,7 +119,10 @@ export function MobileMenu({
             aria-label="Mobile Navigation"
             className="fixed top-16 sm:top-20 inset-x-4 z-50 rounded-2xl border border-border/80 bg-background/95 backdrop-blur-md p-4 shadow-lg shadow-foreground/5 max-w-sm mx-auto animate-in fade-in-0 zoom-in-95 duration-200 motion-reduce:animate-none"
           >
-            <nav className="flex flex-col gap-1" aria-label="Mobile Navigation Links">
+            <nav
+              className="flex flex-col gap-1"
+              aria-label="Mobile Navigation Links"
+            >
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.replace("/#", "");
                 return (
@@ -122,15 +131,18 @@ export function MobileMenu({
                     href={item.href}
                     onClick={closeMenu}
                     className={cn(
-                      "min-h-[44px] px-3.5 py-2.5 rounded-xl text-sm font-medium flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                      "min-h-11 px-3.5 py-2.5 rounded-xl text-sm font-medium flex items-center justify-between transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                       isActive
                         ? "bg-primary/10 text-primary font-semibold"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
                     )}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
+                      <span
+                        className="size-1.5 rounded-full bg-primary"
+                        aria-hidden="true"
+                      />
                     )}
                   </Link>
                 );
@@ -142,7 +154,7 @@ export function MobileMenu({
                   onClick={closeMenu}
                   className={cn(
                     buttonVariants({ variant: "default" }),
-                    "w-full min-h-[44px] rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-medium shadow-xs justify-center"
+                    "w-full min-h-11 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-medium shadow-xs justify-center",
                   )}
                 >
                   {contactItem.label}

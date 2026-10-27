@@ -54,7 +54,10 @@ export function HeroSection() {
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Role Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border/80 bg-card/60 backdrop-blur-xs text-xs font-medium text-primary shadow-2xs mb-5">
-              <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
+              <span
+                className="size-2 rounded-full bg-primary"
+                aria-hidden="true"
+              />
               <span>Full-Stack Developer</span>
             </div>
 
@@ -82,7 +85,7 @@ export function HeroSection() {
                 download="Masud_Rana_Resume.pdf"
                 className={cn(
                   buttonVariants({ variant: "default", size: "lg" }),
-                  "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 text-sm font-medium shadow-xs transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center justify-center w-full sm:w-auto"
+                  "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 text-sm font-medium shadow-xs transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center justify-center w-full sm:w-auto",
                 )}
               >
                 <Download className="size-4" aria-hidden="true" />
@@ -93,7 +96,7 @@ export function HeroSection() {
                 href="/#contact"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
-                  "group rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-6 text-sm font-medium transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center justify-center w-full sm:w-auto"
+                  "group rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-6 text-sm font-medium transition-transform active:scale-95 motion-reduce:transform-none gap-2 inline-flex items-center justify-center w-full sm:w-auto",
                 )}
               >
                 <span>Contact Me</span>
@@ -132,7 +135,7 @@ export function HeroSection() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Outer decorative card frame */}
-              <div className="relative size-60 sm:size-64 md:size-72 lg:size-[350px] xl:size-[360px] max-w-full aspect-square rounded-3xl p-2.5 sm:p-3 bg-card/60 backdrop-blur-xs border border-border/80 shadow-lg shadow-foreground/5 transition-transform duration-300 group-hover:border-primary/40 motion-reduce:transform-none">
+              <div className="relative size-60 sm:size-64 md:size-72 lg:size-87.5 xl:size-90 max-w-full aspect-square rounded-3xl p-2.5 sm:p-3 bg-card/60 backdrop-blur-xs border border-border/80 shadow-lg shadow-foreground/5 transition-transform duration-300 group-hover:border-primary/40 motion-reduce:transform-none">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted/40">
                   <Image
                     src="/images/profile.png"
