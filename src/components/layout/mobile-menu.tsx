@@ -117,7 +117,7 @@ export function MobileMenu({
             role="dialog"
             aria-modal="true"
             aria-label="Mobile Navigation"
-            className="fixed top-16 sm:top-20 inset-x-4 z-50 rounded-2xl border border-border/80 bg-background/95 backdrop-blur-md p-4 shadow-lg shadow-foreground/5 max-w-sm mx-auto animate-in fade-in-0 zoom-in-95 duration-200 motion-reduce:animate-none"
+            className="fixed top-16 sm:top-20 inset-x-4 z-50 rounded-[32px] overflow-hidden border border-border/80 bg-background/95 backdrop-blur-md p-4 shadow-lg shadow-foreground/5 max-w-sm mx-auto animate-in fade-in-0 zoom-in-95 duration-200 motion-reduce:animate-none"
           >
             <nav
               className="flex flex-col gap-1"
