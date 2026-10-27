@@ -13,4 +13,8 @@ export interface Project {
   liveUrl: string;
   githubUrl: string;
   image?: string;
+  overview: string;
+  features: readonly string[];
+  technicalFocus: readonly string[];
+  futureImprovements: readonly string[];
 }
