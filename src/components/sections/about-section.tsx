@@ -23,7 +23,7 @@ export function AboutSection() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative w-full py-16 sm:py-20 lg:py-24 border-t border-border/40"
+      className="relative w-full py-12 sm:py-16 lg:py-20 border-t border-border/40"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 w-full">
         {/* Eyebrow Label */}

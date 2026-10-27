@@ -36,7 +36,7 @@ export function HeroSection() {
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative w-full pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 overflow-hidden"
     >
       {/* Subtle background glow */}
       <div
@@ -49,7 +49,7 @@ export function HeroSection() {
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-12 items-center">
           {/* Left Column: Text & Actions */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Role Badge */}
@@ -61,7 +61,7 @@ export function HeroSection() {
             {/* Main Headline */}
             <h1
               id="hero-heading"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15] mb-5"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.15] mb-5"
             >
               Masud Rana.{" "}
               <span className="block text-muted-foreground font-normal mt-1 sm:mt-1.5">
@@ -70,13 +70,13 @@ export function HeroSection() {
             </h1>
 
             {/* Supporting Description */}
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-7 sm:mb-8">
               Full-Stack Developer focused on building modern, responsive, and
               user-friendly web applications.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 mb-8 sm:mb-10 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-3.5 mb-7 sm:mb-9 w-full sm:w-auto">
               <a
                 href="/resume.pdf"
                 download="Masud_Rana_Resume.pdf"
@@ -132,7 +132,7 @@ export function HeroSection() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Outer decorative card frame */}
-              <div className="relative size-64 sm:size-72 md:size-80 lg:size-88 max-w-full aspect-square rounded-3xl p-2.5 bg-card/60 backdrop-blur-xs border border-border/80 shadow-lg shadow-foreground/5 transition-transform duration-300 group-hover:border-primary/40 motion-reduce:transform-none">
+              <div className="relative size-60 sm:size-64 md:size-72 lg:size-[350px] xl:size-[360px] max-w-full aspect-square rounded-3xl p-2.5 sm:p-3 bg-card/60 backdrop-blur-xs border border-border/80 shadow-lg shadow-foreground/5 transition-transform duration-300 group-hover:border-primary/40 motion-reduce:transform-none">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted/40">
                   <Image
                     src="/images/profile.png"
