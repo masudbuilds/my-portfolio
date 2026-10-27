@@ -37,7 +37,9 @@ export function Footer() {
 
   const scrollToTop = () => {
     if (typeof window === "undefined") return;
-    const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     window.scrollTo({
       top: 0,
       behavior: isReducedMotion ? "auto" : "smooth",
@@ -68,7 +70,8 @@ export function Footer() {
               Full-Stack Developer
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Crafting clean, accessible, and performant web experiences with modern architecture and thoughtful engineering.
+              Crafting clean, accessible, and performant web experiences with
+              modern architecture and thoughtful engineering.
             </p>
           </div>
 
@@ -77,7 +80,10 @@ export function Footer() {
             <p className="text-xs font-semibold uppercase tracking-wider text-foreground">
               Navigation
             </p>
-            <nav className="grid grid-cols-2 gap-2 text-sm" aria-label="Footer Navigation">
+            <nav
+              className="grid grid-cols-2 gap-2 text-sm"
+              aria-label="Footer Navigation"
+            >
               {allNavLinks.map((item) => (
                 <Link
                   key={item.href}
@@ -128,7 +134,7 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transform-none min-h-[36px]"
+            className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transform-none min-h-9"
             aria-label="Back to top of page"
           >
             <span>Back to top</span>
