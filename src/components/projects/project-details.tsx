@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Layers,
   Cpu,
+  ShieldCheck,
   Lightbulb,
   ChevronRight,
 } from "lucide-react";
@@ -90,7 +91,7 @@ export function ProjectDetails({ project, otherProjects }: ProjectDetailsProps) 
           {/* Eyebrow Category */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/80 bg-background/80 backdrop-blur-xs text-xs font-semibold uppercase tracking-wider text-primary shadow-2xs mb-4">
             <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-            <span>{project.category}</span>
+            <span>{project.badge ? `${project.badge} • ${project.category}` : project.category}</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.15] mb-2">
@@ -121,7 +122,7 @@ export function ProjectDetails({ project, otherProjects }: ProjectDetailsProps) 
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-2 border-t border-border/60">
+          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-border/60">
             <a
               href={project.liveUrl}
               target="_blank"
@@ -131,22 +132,67 @@ export function ProjectDetails({ project, otherProjects }: ProjectDetailsProps) 
                 "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 text-sm font-medium shadow-xs gap-2 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
               )}
             >
-              <span>Live Demo</span>
+              <span>{project.backendLiveUrl ? "Live Frontend" : "Live Demo"}</span>
               <ExternalLink className="size-4" aria-hidden="true" />
             </a>
 
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-6 text-sm font-medium gap-2 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
-              )}
-            >
-              <GitHubIcon className="size-4" />
-              <span>View Source Code</span>
-            </a>
+            {project.backendLiveUrl && (
+              <a
+                href={project.backendLiveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-5 text-sm font-medium gap-2 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
+                )}
+              >
+                <span>Live Backend API</span>
+                <ExternalLink className="size-4" aria-hidden="true" />
+              </a>
+            )}
+
+            {project.githubClientUrl && project.githubServerUrl ? (
+              <>
+                <a
+                  href={project.githubClientUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-5 text-sm font-medium gap-2 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
+                  )}
+                >
+                  <GitHubIcon className="size-4" />
+                  <span>Frontend Repo</span>
+                </a>
+
+                <a
+                  href={project.githubServerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-5 text-sm font-medium gap-2 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
+                  )}
+                >
+                  <GitHubIcon className="size-4" />
+                  <span>Backend Repo</span>
+                </a>
+              </>
+            ) : (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "rounded-full border-border/80 bg-background/80 hover:bg-muted/60 text-foreground h-11 px-6 text-sm font-medium gap-2 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
+                )}
+              >
+                <GitHubIcon className="size-4" />
+                <span>View Source Code</span>
+              </a>
+            )}
           </div>
         </header>
 
@@ -213,66 +259,191 @@ export function ProjectDetails({ project, otherProjects }: ProjectDetailsProps) 
             aria-labelledby="tech-heading"
             className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-6 sm:p-8 shadow-xs"
           >
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-6">
               <div
                 className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20"
                 aria-hidden="true"
               >
                 <Layers className="size-5" />
               </div>
-              <h2
-                id="tech-heading"
-                className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
-              >
-                Technology Stack
-              </h2>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {project.technologies.map((tech) => (
-                <div
-                  key={tech}
-                  className="rounded-2xl border border-border/80 bg-background/80 p-3.5 text-center shadow-2xs"
+              <div>
+                <h2
+                  id="tech-heading"
+                  className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
                 >
-                  <p className="text-sm font-semibold text-foreground">{tech}</p>
-                </div>
-              ))}
+                  Technology Stack
+                </h2>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Core frameworks, libraries, and tools utilized in this application
+                </p>
+              </div>
             </div>
+
+            {project.frontendTech && project.backendTech ? (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">
+                    Frontend Architecture
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    {project.frontendTech.map((tech) => (
+                      <div
+                        key={tech}
+                        className="rounded-2xl border border-border/80 bg-background/80 p-3.5 text-center shadow-2xs"
+                      >
+                        <p className="text-sm font-semibold text-foreground">{tech}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">
+                    Backend &amp; Database
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    {project.backendTech.map((tech) => (
+                      <div
+                        key={tech}
+                        className="rounded-2xl border border-border/80 bg-background/80 p-3.5 text-center shadow-2xs"
+                      >
+                        <p className="text-sm font-semibold text-foreground">{tech}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {project.technologies.map((tech) => (
+                  <div
+                    key={tech}
+                    className="rounded-2xl border border-border/80 bg-background/80 p-3.5 text-center shadow-2xs"
+                  >
+                    <p className="text-sm font-semibold text-foreground">{tech}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
 
-          {/* F. Areas of Technical Focus */}
-          <section
-            aria-labelledby="focus-heading"
-            className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-6 sm:p-8 shadow-xs"
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <div
-                className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20"
-                aria-hidden="true"
-              >
-                <Cpu className="size-5" />
-              </div>
-              <h2
-                id="focus-heading"
-                className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
-              >
-                Areas of Technical Focus
-              </h2>
-            </div>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              {project.technicalFocus.map((focus) => (
-                <li
-                  key={focus}
-                  className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/40 p-4"
+          {/* F. Architecture & Security Overview */}
+          {project.architectureSecurity && project.architectureSecurity.length > 0 && (
+            <section
+              aria-labelledby="architecture-heading"
+              className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-6 sm:p-8 shadow-xs"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20"
+                  aria-hidden="true"
                 >
-                  <span
-                    className="size-2 rounded-full bg-primary shrink-0 mt-2"
-                    aria-hidden="true"
-                  />
-                  <span className="leading-relaxed text-foreground/90">{focus}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+                  <ShieldCheck className="size-5" />
+                </div>
+                <div>
+                  <h2
+                    id="architecture-heading"
+                    className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
+                  >
+                    Architecture &amp; Security Overview
+                  </h2>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Decoupled client-server design, token bridge, and inventory safeguards
+                  </p>
+                </div>
+              </div>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {project.architectureSecurity.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/40 p-4"
+                  >
+                    <span
+                      className="size-2 rounded-full bg-primary shrink-0 mt-2"
+                      aria-hidden="true"
+                    />
+                    <span className="leading-relaxed text-foreground/90">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* G. Challenges & Technical Considerations */}
+          {project.challenges && project.challenges.length > 0 ? (
+            <section
+              aria-labelledby="challenges-heading"
+              className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-6 sm:p-8 shadow-xs"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20"
+                  aria-hidden="true"
+                >
+                  <Cpu className="size-5" />
+                </div>
+                <div>
+                  <h2
+                    id="challenges-heading"
+                    className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
+                  >
+                    Challenges &amp; Technical Considerations
+                  </h2>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Key engineering trade-offs, race condition prevention, and state resilience
+                  </p>
+                </div>
+              </div>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {project.challenges.map((challenge) => (
+                  <li
+                    key={challenge}
+                    className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/40 p-4"
+                  >
+                    <span
+                      className="size-2 rounded-full bg-primary shrink-0 mt-2"
+                      aria-hidden="true"
+                    />
+                    <span className="leading-relaxed text-foreground/90">{challenge}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : (
+            <section
+              aria-labelledby="focus-heading"
+              className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-6 sm:p-8 shadow-xs"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20"
+                  aria-hidden="true"
+                >
+                  <Cpu className="size-5" />
+                </div>
+                <h2
+                  id="focus-heading"
+                  className="text-xl sm:text-2xl font-bold tracking-tight text-foreground"
+                >
+                  Areas of Technical Focus
+                </h2>
+              </div>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {project.technicalFocus.map((focus) => (
+                  <li
+                    key={focus}
+                    className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/40 p-4"
+                  >
+                    <span
+                      className="size-2 rounded-full bg-primary shrink-0 mt-2"
+                      aria-hidden="true"
+                    />
+                    <span className="leading-relaxed text-foreground/90">{focus}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {/* G. Future Improvements */}
           <section

@@ -20,6 +20,7 @@ function GitHubIcon({ className }: { className?: string }) {
 }
 
 const PROJECT_INITIALS: Record<string, string> = {
+  booknook: "BN",
   "lal-khobor": "LK",
   "bazar-dor": "BD",
   fitlog: "FL",
@@ -62,8 +63,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         )}
 
-        {/* Category Pill Tag */}
-        <div className="absolute top-3.5 right-3.5 z-10">
+        {/* Category & Badge Pills */}
+        <div className="absolute top-3.5 right-3.5 z-10 flex items-center gap-1.5">
+          {project.badge && (
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary text-primary-foreground text-[11px] font-semibold shadow-2xs">
+              {project.badge}
+            </span>
+          )}
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-background/85 backdrop-blur-md border border-border/80 text-[11px] font-medium text-foreground shadow-2xs">
             {project.category}
           </span>

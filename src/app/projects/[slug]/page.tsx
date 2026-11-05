@@ -34,11 +34,15 @@ export async function generateMetadata({
       title: `${project.title} | Masud Rana`,
       description: project.description,
       type: "article",
+      images: project.image
+        ? [{ url: project.image, alt: `${project.title} Preview` }]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} | Masud Rana`,
       description: project.description,
+      images: project.image ? [project.image] : undefined,
     },
   };
 }
