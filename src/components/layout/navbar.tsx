@@ -49,6 +49,7 @@ export function Navbar() {
       "about",
       "skills",
       "education",
+      "process",
       "projects",
       "github-activity",
       "contact",
