@@ -50,6 +50,7 @@ export function Navbar() {
       "skills",
       "education",
       "projects",
+      "github-activity",
       "contact",
     ];
     const elements = sectionIds
