@@ -27,7 +27,9 @@ interface GitHubActivityClientProps {
 export function GitHubActivityClient({
   initialData,
 }: GitHubActivityClientProps) {
-  const [data, setData] = React.useState<GitHubActivityData | null>(initialData);
+  const [data, setData] = React.useState<GitHubActivityData | null>(
+    initialData,
+  );
   const [isLoading, setIsLoading] = React.useState(!initialData);
   const [hasError, setHasError] = React.useState(false);
 
@@ -115,7 +117,7 @@ export function GitHubActivityClient({
 
         {/* Content Box */}
         {isLoading ? (
-          <div className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-8 sm:p-12 shadow-xs flex flex-col items-center justify-center min-h-[300px]">
+          <div className="rounded-3xl border border-border/80 bg-card/60 backdrop-blur-xs p-8 sm:p-12 shadow-xs flex flex-col items-center justify-center min-h-75">
             <div className="size-8 rounded-full border-2 border-primary border-t-transparent animate-spin mb-4" />
             <p className="text-xs text-muted-foreground">
               Loading GitHub activity...

@@ -78,7 +78,7 @@ export function GitHubCalendar({ weeks, days }: GitHubCalendarProps) {
         tabIndex={0}
         aria-label="GitHub contribution calendar"
       >
-        <div className="min-w-[720px] select-none">
+        <div className="min-w-180 select-none">
           {/* Month Labels Header */}
           <div className="relative h-5 mb-1.5 ml-8">
             {monthLabels.map(({ text, weekIndex }) => (
@@ -97,11 +97,11 @@ export function GitHubCalendar({ weeks, days }: GitHubCalendarProps) {
           {/* Grid: Weekday labels + Week columns */}
           <div className="flex gap-2 items-start">
             {/* Weekday Labels Column */}
-            <div className="flex flex-col gap-[3px] w-6 shrink-0 pt-px text-right pr-1">
+            <div className="flex flex-col gap-0.75 w-6 shrink-0 pt-px text-right pr-1">
               {[0, 1, 2, 3, 4, 5, 6].map((rowIdx) => (
                 <div
                   key={rowIdx}
-                  className="h-[11px] sm:h-[12px] flex items-center justify-end"
+                  className="h-2.75 sm:h-3 flex items-center justify-end"
                 >
                   {weekdayLabels[rowIdx] && (
                     <span className="text-[10px] leading-none font-medium text-muted-foreground/80">
@@ -113,21 +113,21 @@ export function GitHubCalendar({ weeks, days }: GitHubCalendarProps) {
             </div>
 
             {/* Weeks Container */}
-            <div className="flex gap-[3px] flex-1">
+            <div className="flex gap-0.75 flex-1">
               {weeks.map((week, weekIdx) => {
                 // Ensure 7 slots per week (0=Sunday to 6=Saturday)
                 const dayMap = new Map<number, ContributionDay>();
                 week.days.forEach((d) => dayMap.set(d.weekday, d));
 
                 return (
-                  <div key={weekIdx} className="flex flex-col gap-[3px]">
+                  <div key={weekIdx} className="flex flex-col gap-0.75">
                     {[0, 1, 2, 3, 4, 5, 6].map((weekday) => {
                       const day = dayMap.get(weekday);
                       if (!day) {
                         return (
                           <div
                             key={weekday}
-                            className="size-[11px] sm:size-[12px] rounded-[2px] opacity-0"
+                            className="size-2.75 sm:size-3 rounded-xs opacity-0"
                             aria-hidden="true"
                           />
                         );
@@ -144,7 +144,7 @@ export function GitHubCalendar({ weeks, days }: GitHubCalendarProps) {
                           onFocus={() => setActiveDay(day)}
                           aria-label={`${day.contributionCount} contributions on ${day.date}`}
                           className={cn(
-                            "size-[11px] sm:size-[12px] rounded-[2px] transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
+                            "size-2.75 sm:size-3 rounded-xs transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
                             LEVEL_CLASSES[day.level] ?? LEVEL_CLASSES[0],
                             isSelected &&
                               "ring-2 ring-foreground/90 ring-offset-1 ring-offset-background z-10 scale-110",
@@ -187,7 +187,7 @@ export function GitHubCalendar({ weeks, days }: GitHubCalendarProps) {
             <span
               key={level}
               className={cn(
-                "size-[11px] rounded-[2px] inline-block",
+                "size-2.75 rounded-xs inline-block",
                 LEVEL_CLASSES[level],
               )}
               aria-hidden="true"
