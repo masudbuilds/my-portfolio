@@ -102,8 +102,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-between gap-2.5 pt-4 border-t border-border/60 mt-auto">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center justify-between gap-2 pt-4 border-t border-border/60 mt-auto">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <a
               href={project.liveUrl}
               target="_blank"
@@ -111,7 +111,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               aria-label={`Visit live demo for ${project.title}`}
               className={cn(
                 buttonVariants({ variant: "default", size: "sm" }),
-                "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-8 px-3.5 text-xs font-medium shadow-xs gap-1.5 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
+                "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-8 px-2.5 sm:px-3 text-xs font-medium shadow-xs gap-1 sm:gap-1.5 inline-flex items-center whitespace-nowrap transition-transform active:scale-95 motion-reduce:transform-none"
               )}
             >
               <span>Live Demo</span>
@@ -122,7 +122,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={`/projects/${project.slug}`}
               className={cn(
                 buttonVariants({ variant: "outline", size: "sm" }),
-                "rounded-full border-border/80 text-foreground hover:bg-muted/60 h-8 px-3.5 text-xs font-medium gap-1.5 inline-flex items-center transition-transform active:scale-95 motion-reduce:transform-none"
+                "rounded-full border-border/80 text-foreground hover:bg-muted/60 h-8 px-2.5 sm:px-3 text-xs font-medium gap-1 sm:gap-1.5 inline-flex items-center whitespace-nowrap transition-transform active:scale-95 motion-reduce:transform-none"
               )}
             >
               <span>View Details</span>
@@ -134,11 +134,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           <a
-            href={project.githubUrl}
+            href={project.githubClientUrl ?? project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`View ${project.title} source code on GitHub`}
-            className="flex size-8 items-center justify-center rounded-full border border-border/80 bg-background/80 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border/80 bg-background/80 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <GitHubIcon className="size-4" />
           </a>
